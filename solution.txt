@@ -1,0 +1,47 @@
+Appliance 🟢
+ - brand: char*
+ - model: char*
+ - serail number: char*
+ - power: float
+ - turendOn: bool
+ - turnOff()
+ - turnOn()
+ - print() -> model, brand, power
+
+Heating Appliance : public Appliance 🟢
+ - if(!turendOn()) -> power = 0;
+
+Tv : public Appliance 🟢
+ - brightness: int 0-100
+ - if(!turendOn()) -> power = 0.5
+   else -> power = brightness / 100 * power
+
+Fridge : public Appliance 🟢
+ - numberOfCopressors: int
+ - power: float
+ - power = numberOfCopressors * power
+
+make it easy to add each Appliance
+
+2nd part of the problem:
+
+Room
+It wll implement polymorphic container with appliances which will be in the room
+ - name : char[30]
+ - numberOfOutlets: int
+ - maxPowerConsumption: float
+ - appliancesInTheRoom : Appliances** (polymorphic container)
+ - forbiddenAppliance: arrray of aplliances types
+ - forbidAppliances: bool
+ - operator +=(): add new appliance to the room (turn it off by default)
+ - operator +()
+ - appliance[<serial number>](): get the appliance in the room
+ - operator-=(): remove appliance from the room
+ - operator-()
+ ! only appliance in the room can be turned on!!!!
+ - checkPowerConsumption() -> check the power consuption in the room when turning on appliance
+    if the power is over the max clear all the appliances and forbid adding new
+ - getCurrentPowerConsuption()
+ - roomInfo()
+
+
